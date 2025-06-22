@@ -1,4 +1,4 @@
-import React, {useId} from "react";,
+import React, {useId} from "react";
 
 function Select({
     options,
@@ -18,7 +18,7 @@ function Select({
                 outline-none focus:bg-gray-50
                 duration-200 border border-gray-200 w-full ${className}`}
             >
-                {options?.map((optio) =>(
+                {options?.map((option) =>(
                     <option key={option} value={option}>
                         {option}
                     </option>

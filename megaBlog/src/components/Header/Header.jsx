@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container, Logo, LogoutBtn,} from '../index'
 import { Link } from 'react-router-dom'
-import {useSelector} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 function Header(){
@@ -29,10 +29,10 @@ function Header(){
             active: authStatus
         },
         {
-            name:"Add posts",
-            slug: "/add-posts",
+            name:"Add post",
+            slug: "/add-post",
             active: authStatus
-        }
+        },
 
     ]
     return (
@@ -49,8 +49,8 @@ function Header(){
                         item.active ? (
                             <li key = {item.name}>
                               <button
-                              onClick={() => navigat(item.slug)}
-                              className=''
+                              onClick={() => navigate(item.slug)}
+                              className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
                               >{item.name}</button>  
                             </li>
                         ) : null

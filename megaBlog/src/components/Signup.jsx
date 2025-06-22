@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { authservice } from "../appwrite/auth";
+import  authService from "../appwrite/auth";
 import {Link, useNavigate} from 'react-router-dom'
-import {login} from '../store/authslice'
+import {login} from '../store/authSlice'
 import {Button, Input, Logo} from './index'
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -15,9 +15,9 @@ function Signup(){
     const create = async(data) => {
         setError("")
         try {
-            const userData = await authservice.createAccount(data)
+            const userData = await authService.createAccount(data)
             if(userData){
-                const userData = await authservice.
+                const userData = await authService.
                 getCurrentUser()
                 if(userData) dispatch(login(userData));
                 navigate("/ ")
@@ -45,7 +45,6 @@ function Signup(){
                                         to = "/login"
                                         className='font-medium text-primary
                                         transition-all duration-200'
-                                        hover:underline
                                         >
                                             Sign In
                                         </Link>
@@ -94,3 +93,5 @@ function Signup(){
         </div>
     )
 }
+
+export default Signup
